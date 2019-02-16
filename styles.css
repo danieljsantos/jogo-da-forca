@@ -1,6 +1,146 @@
+body{
+  background-color: rgba(69, 62, 131, 0.418);
+  margin:0;
+  height: 100vh;
+}
+
+header h2{
+  display: flex;
+  align-items:flex-start;
+}
+
+header {
+align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 10px 0 10px ;
+}
+
+.menu-categorias {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  justify-content: center;
+  padding: 25px; 
+  width: 30px;
+}
+
+.traco {
+  background-color: black;
+  border-radius: 30px;
+  display: block;
+  height: 3px;
+  margin: 4.25px 0;
+  width: 100%;
+}
+
+.traco-1, .traco-3 {
+   transform-origin: right center;  
+}
+
+.menu-categorias.ativo .traco-1 {
+  transform: rotateZ(-45deg); 
+}
+
+.menu-categorias.ativo .traco-2 {
+  opacity: 0;
+}
+
+.menu-categorias.ativo .traco-3 {
+  transform: rotateZ(45deg);
+}
+
+.nav-menu-categorias {
+  align-items: center;
+   /* display: none;  */
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  transform: translateX(-100%);
+}
+nav p{
+  text-align: center;
+  width: 30%;
+}
+
+.visivel {
+  transform: translateX(0);
+}
+/* Fim do menu de categorias */
+
 .timer {
     display: flex;
     justify-content: center;
   }
+.container-img{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+img{
+  width: 200px;
+  height: 300px ;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.img1{
+  position: absolute;
+  z-index: 7;
+}
+
+.img2{
+  position: absolute;
+  z-index: 6;
+}
+.img3{
+  z-index: 5;
+  position: absolute;
+}
+.img4{
+  z-index: 4;
+  position: absolute;
+}
+.img5{
+  z-index: 1;
+  position: absolute;
+}
+.img6{
+  z-index: 1;
+  position: absolute;
+}
+.img7{
+  z-index: 1;
+  position: absolute;
+}
+
+footer{
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+  
+  a{
+    text-decoration: none;
+    color:black;
+  }
+
+  @media(min-width: 600px) {
+    .menu-categorias {
+      display: none;
+      
+    }
+    .nav-menu-categorias {
+      align-items: center;
+       /* display: none;  */
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0 10%;
+      transform: translateX(0);
+    }
+    
+  }
+
 
   

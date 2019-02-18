@@ -83,32 +83,32 @@ img{
   border: 2px solid black;
   border-radius: 10px;
 }
-.img1{
+#img1{
   position: absolute;
   z-index: 7;
 }
 
-.img2{
+#img2{
   position: absolute;
   z-index: 6;
 }
-.img3{
+#img3{
   z-index: 5;
   position: absolute;
 }
-.img4{
+#img4{
   z-index: 4;
   position: absolute;
 }
-.img5{
-  z-index: 1;
+#img5{
+  z-index: 3;
   position: absolute;
 }
-.img6{
-  z-index: 1;
+#img6{
+  z-index: 2;
   position: absolute;
 }
-.img7{
+#img7{
   z-index: 1;
   position: absolute;
 }

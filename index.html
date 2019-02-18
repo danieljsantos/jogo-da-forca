@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jogo da Forca</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script async src="script.js"></script>
 </head>
 
 <body>
@@ -19,11 +19,9 @@
             <span class="traco traco-3"></span>
         </div>
     </header>
-          
+
     <nav class="nav-menu-categorias">
-        <p>Carro</p>
-        <p>Animais</p>
-        <p>Lugares Famosos</p>
+        <p>As palavras são sobre carros!</p>
     </nav>
 
     <div class="timer">
@@ -31,29 +29,31 @@
         <p>:</p>
         <p class="segundos">30</p>
     </div>
-    <div class = 'container-img'>
-            <img class="img1" src="Img jogo da forca/1 - forca-vazia.png" alt="">
-            <img class="img2" src="Img jogo da forca/2 - cabeça.png" alt="">
-            <img class="img3" src="Img jogo da forca/3 - braço-1.png" alt="">
-            <img class="img4" src="Img jogo da forca/4 - braço-2.png" alt="">
-            <img class="img5" src="Img jogo da forca/5 - corpo.png" alt="">
-            <img class="img6" src="Img jogo da forca/6 - perna-1.png" alt="">
-            <img class="img7" src="Img jogo da forca/7 - perna-2.png" alt="">
-        </div>
-    
-    <!-- <img src="" alt=""> -->
-        <div>
-        <p>Dica 1</p>
-        <p>Dica 2</p>
-        <!-- <input id="exemplo" placeholder="Faça sua jogada!" maxlength="1" onkeypress="return lettersOnly(event);"/> -->
-        <!-- <button id="botao">OK!</button> -->
+    <div class='container-img'>
+        <img id="img1" src="Img jogo da forca/1 - forca-vazia.png" alt="">
+        <img id="img2" src="Img jogo da forca/2 - cabeça.png" alt="">
+        <img id="img3" src="Img jogo da forca/3 - braço-1.png" alt="">
+        <img id="img4" src="Img jogo da forca/4 - braço-2.png" alt="">
+        <img id="img5" src="Img jogo da forca/5 - corpo.png" alt="">
+        <img id="img6" src="Img jogo da forca/6 - perna-1.png" alt="">
+        <img id="img7" src="Img jogo da forca/7 - perna-2.png" alt="">
     </div>
-    
-    
-    <footer>       
+
+    <!-- <img src="" alt=""> -->
+    <div>
+        <p id='dica1'>Dica 1: </p>
+        <p id='dica2'>Dica 2: </p>
+        <input id="exemplo" placeholder="Faça sua jogada!" maxlength="1" onkeypress="return lettersOnly(event);"/>
+        <button id="botao">OK!</button>
+    </div>
+
+    <div>
+        <p id = 'mascara'> Aqui fica a mascara da palavra</p>
+    </div>
+    <footer>
         <a href="">Contact</a>
         <a href="">AboutUs</a>
-        <a href="">Help</a>  
+        <a href="">Help</a>
     </footer>
 
 </body>

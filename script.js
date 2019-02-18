@@ -1,3 +1,5 @@
+let botao = document.querySelector('#botao');
+
 function lettersOnly(evt) {
   evt = (evt) ? evt : event;
   var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
@@ -49,13 +51,13 @@ let numAleatorio = function () {
   return Math.round(Math.random() * (max - min) + min);
 }
 
-// let pegaInput = function(){
-//   let inputElement = document.getElementById('exemplo');
-//   inputElement.addEventListener('change', function(e) {
-//     jogadaDoUsuario = e.target.value; 
-//   });
-//   return jogadaDoUsuario; 
-// }
+let pegaInput = function(){
+  let inputElement = document.getElementById('exemplo');
+  inputElement.addEventListener('change', function(e) {
+    jogadaDoUsuario = e.target.value; 
+  });
+  return jogadaDoUsuario; 
+}
 
 // let jogadaDoUsuario = ' ';
 // let botao = document.getElementById('botao');
@@ -74,25 +76,6 @@ let catCarro = [
   palavra4 = { palavra: 'banco', dica1: 'passageiro', dica2: 'couro' },
   palavra5 = { palavra: 'escapamento', dica1: 'barulho', dica2: 'esportivo' }
 ];
-
-let x = numAleatorio();
-
-let a = catCarro[2].palavra; // salva o atributo 'palavra' do objeto 'palavra1' da lista 'catCarro' na variável 'a'. No jogo, 'catCarro' será a categoria escolhida pelo usuário. 'palavra2' virá dps que ele acertar a 1 e assim por diante.
-
-let d1 = catCarro[x].dica1;
-let d2 = catCarro[x].dica2;
-
-let palavraDaRodada = a.split(''); // separa a variável 'a' em caracteres individuais e os coloca na lista 'c'
-console.log(palavraDaRodada);
-
-// Cria uma linha pontilhada do tamanho da palavra
-let mascara = [];
-for (let i = 0; i < palavraDaRodada.length; i++) {
-  mascara = mascara + '_';
-}
-mascara = mascara.split('');
-console.log(mascara);
-
 const pMinutos = document.querySelector('.minutos');
 const pSegundos = document.querySelector('.segundos');
 const menuCategorias = document.querySelector('.menu-categorias');
@@ -103,21 +86,106 @@ setTimeout(atualizarTimer, 1000);
 menuCategorias.onclick = atualizarMenu;
 
 let gameLoop = true;
+let rodada = 0;
+let roundLoop = true;
 let jogadaDoUsuario = '';
-let letrasRestantes = palavraDaRodada;
-while (gameLoop == true) {
-  while (jogadaDoUsuario == '') {
-    jogadaDoUsuario = prompt("Faça sua jogada");
+let erros = 1;
+let encontrouLetra = false;
+while (gameLoop = true) {
+  let a = catCarro[rodada].palavra; // salva o atributo 'palavra' do objeto 'palavra1' da lista 'catCarro' na variável 'a'. No jogo, 'catCarro' será a categoria escolhida pelo usuário. 'palavra2' virá dps que ele acertar a 1 e assim por diante.
+
+  let d1 = catCarro[rodada].dica1;
+  document.getElementById('dica1').innerHTML = 'Dica 1: ' + d1;
+  let d2 = catCarro[rodada].dica2;
+  document.getElementById('dica2').innerHTML = 'Dica 2: ' + d2;
+
+  let palavraDaRodada = a.split(''); // separa a variável 'a' em caracteres individuais e os coloca na lista 'c'
+  console.log(palavraDaRodada);
+
+  // Cria uma linha pontilhada do tamanho da palavra
+  let mascara = [];
+  for (let i = 0; i < palavraDaRodada.length; i++) {
+    mascara = mascara + '_';
   }
+  mascara = mascara.split('');
+  console.log(mascara);
+
+
+  let letrasRestantes = [palavraDaRodada.length];
+  for (let i = 0; i < palavraDaRodada.length; i++) {
+    letrasRestantes[i] = palavraDaRodada[i]
+  }
+
+  console.log(letrasRestantes);
+  roundLoop = true;
+  while (roundLoop == true) {
+    while (jogadaDoUsuario == '') {
+      jogadaDoUsuario = prompt("Faça sua jogada");
+      jogadaDoUsuario = jogadaDoUsuario.toLowerCase();
+      
+    }
+    
     for (let i = 0; i < palavraDaRodada.length; i++) {
       if (palavraDaRodada[i] == jogadaDoUsuario) {
         mascara[i] = jogadaDoUsuario;
-        letrasRestantes.splice(i, 1);
-      }  
+        encontrouLetra = true;
+      }
     }
-    if (letrasRestantes.length == 0) {  
-      gameLoop = false;    
+    if (encontrouLetra == false) {
+      if (erros == 1) {
+        document.getElementById('img1').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 2) {
+        document.getElementById('img2').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 3) {
+        document.getElementById('img3').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 4) {
+        document.getElementById('img4').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 5) {
+        document.getElementById('img5').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 6) {
+        document.getElementById('img6').style.display = 'none';
+        erros++;
+      }
+
+      else if (erros == 7) {
+        alert('Você perdeu!');
+        roundLoop = false;
+        gameLoop = false;
+      }
+    }
+    encontrouLetra = false;
+    document.getElementById('mascara').innerHTML = mascara;
+    for (let i = 0; i < letrasRestantes.length; i++) {
+      if (letrasRestantes[i] === jogadaDoUsuario) {
+        letrasRestantes.splice(i, 1);
+      }
+    }
+    if (letrasRestantes.length == 0) {
+      roundLoop = false;
+      rodada++;
     }
     console.log(mascara);
     jogadaDoUsuario = '';
+
+  }
+  if (rodada == 5) {
+    alert('Parabéns! Você venceu!');
+    gameLoop = false;
+  }
 }
+
